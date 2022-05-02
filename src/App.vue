@@ -1,6 +1,6 @@
 <template>
   <div id="app"> 
-    <tool-bar></tool-bar>
+    <ToolBar></ToolBar>
     <!-- url이 만약 news -->
     <!-- <NewsView></NewsView> -->
     <router-view></router-view>
