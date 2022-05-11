@@ -1,27 +1,25 @@
 <template>
   <div>
-    <ul class="jobs-list">
-      <li v-for="item in fetchedJobs" v-bind:key="item.id" class="post">
+    <ul class="list">
+      <li v-for="item in fetchedNews" v-bind:key="item.id" class="post">
         <!-- 포인트 영역 -->
         <div class="poinsts">
-          {{ item.points || 0 }}
+          {{ item.points }}
         </div>
         <!-- 기타 정보 영역 -->
         <div>
-          <p class="jobs-title">
+          <p class="title">
             <a v-bind:href="item.url">
               {{ item.title }}
             </a>
           </p>
           <small class="link-text">
-            {{ item.time_ago }} by
-            <a v-bind:href="item.url">
-              {{ item.domain }}
-            </a>
+            {{ item.time_ago }} by 
+            <router-link v-bind:to="`/user/${item.user}`" class="link-text">{{ item.user }}</router-link>
           </small>
         </div>
       </li>
-    </ul>
+    </ul>      
   </div>
 </template>
 
@@ -31,13 +29,14 @@ import { mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters([
-      'fetchedJobs'
+      'fetchedNews',
+      'fetchedAsk',
       ]),
-  },   
+  },    
   created() {
-    this.$store.dispatch('FETCH_JOBS');
+    this.$store.dispatch('FETCH_NEWS');
+    this.$store.dispatch('FETCH_ASK');
   },
-
 }
 </script>
 
