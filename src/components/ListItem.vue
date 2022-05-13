@@ -10,16 +10,16 @@
         <div>
           <!-- 타이틀 영역 -->
           <p class="title">
-            <templdate v-if="item.domain">
+            <template v-if="item.domain">
               <a v-bind:href="item.url">
                 {{ item.title }}
               </a>
-            </templdate>
-            <templdate v-else>
+            </template>
+            <template v-else>
               <router-link v-bind:to="`item/${item.id}`">
                 {{ item.title }}
               </router-link>
-            </templdate>
+            </template>
           </p>
           <small class="link-text">
             {{ item.time_ago }} by 

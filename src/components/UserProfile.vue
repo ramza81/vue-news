@@ -1,33 +1,28 @@
 <template>
-    <div class="user-container">
+  <div class="user-container">
     <div>
         <i class="fas fa-user"></i>
     </div>
     <div class="user-description">
-        <div>{{ fetchedUser.id }}</div>
-        <div class="time">
-            {{ info.created }}
-            <!-- {{ fetchedUser.created }} -->
-            <!-- {{ userInfo.created }} -->
-        </div>
+      <slot name="username">
+        <!-- 상위 컴포넌트에서 정의할 영역 -->
+      </slot>
+      <div class="time">
+        <slot name="time">
+          <!-- 상위 컴포넌트에서 정의할 영역 -->
+        </slot>
+        <slot name="karma">
+          <!-- 상위 컴포넌트에서 정의할 영역 -->
+        </slot>          
+      </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
     props: {
         info: Object,
-    },
-    computed: {
-        ...mapGetters([
-        'fetchedUser'
-        ]),
-        userInfo() {
-        return this.$store.state.user;
-        }
     },
 }
 </script>
