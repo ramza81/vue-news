@@ -11,7 +11,7 @@ function fetchNewsList() {
     return axios.get(`${config.baseUrl}news/1.json`);
 }
 
-function fetchJobsList() {
+async function fetchJobsList() {
     try {
         const response = await axios.get(`${config.baseUrl}jobs/1.json`);   
         return response;
