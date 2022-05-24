@@ -12,23 +12,48 @@ function fetchNewsList() {
 }
 
 function fetchJobsList() {
-    return axios.get(`${config.baseUrl}jobs/1.json`);
+    try {
+        const response = await axios.get(`${config.baseUrl}jobs/1.json`);   
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-function fetchAskList() {
-    return axios.get(`${config.baseUrl}ask/1.json`);
+async function fetchAskList() {
+    try {
+        const response = await axios.get(`${config.baseUrl}ask/1.json`);        
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-function fetchList(pageName) {
-    return axios.get(`${config.baseUrl}${pageName}/1.json`);
+async function fetchList(pageName) {
+    try {
+        const response = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-function fetchUserInfo(username) {
-    return axios.get(`${config.baseUrl}user/${username}.json`);
+async function fetchUserInfo(username) {
+    try {
+        const response = await axios.get(`${config.baseUrl}user/${username}.json`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-function fetchItem(askid) {
-    return axios.get(`${config.baseUrl}item/${askid}.json`);
+async function fetchItem(askid) {
+    try {
+        const response = await axios.get(`${config.baseUrl}item/${askid}.json`);
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
